@@ -6,10 +6,10 @@ object BasicsOfKotlin {
 
         val meaningOfLife: Int = 42 // final int meaningOfLife = 42
 
-        val newInt = 42 // Auto Type Inference by Compiler
+        val newInt = 42 // Auto Type - Inference by Compiler
         // meaningOfLife = 43 // Error - Val are "Immutable"
 
-        var objectiveInLife = 32
+        var objectiveInLife = 32    // mutable - Values can be changed
         objectiveInLife = 50
 
         //String
@@ -29,6 +29,8 @@ object BasicsOfKotlin {
         }else{
             println("If False")
         }
+
+        // If Structures can be expressions
 
         val anIfExpression = if(aCondition) 42 else 999 //This is an expression
         println(anIfExpression)
@@ -116,7 +118,7 @@ object BasicsOfKotlin {
         do{
             println(i)
             i-= 1
-        }while( i > 0)
+        }while( i > 0)      //semicolons are not necessary
 
         //Functions
         println("Functions")
@@ -128,7 +130,7 @@ object BasicsOfKotlin {
             return result
         }
 
-        // single-expressionn function
+        // single-expression function
 
         fun combineString(strA: String, strB: String) = "$strA +++++ $strB"
 

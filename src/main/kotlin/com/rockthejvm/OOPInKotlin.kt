@@ -4,7 +4,7 @@ object OOPInKotlin {
 
     //Classes
 
-    open class Pet{ //by default classes are not extendable without open
+    open class Pet{ //by default classes are not extendable without "open"
         //properties
         val age = 0
 
@@ -17,7 +17,7 @@ object OOPInKotlin {
         companion object{
             // Properties and methods of Pet TYPE
             // static Boolean humanLoveGuaranteed = true
-            //Everything is static
+            // Everything is static
             val humanLoveGuaranteed = true
         }
     }
@@ -28,10 +28,11 @@ object OOPInKotlin {
     // Inheritance
 
     class Dog(val name: String) : Pet(){
-        //name is not a property, it is part of constructor
-        // val/var name  is a property
-        // Constructor arguments are NOT properties unlesss prefixed with val/var
-        //Additional properties, methods, parameters etc
+        //only "name" is not a property, it is part of constructor
+        // "val/var name" is a property
+        // Constructor arguments are NOT properties, unless prefixed with val/var
+
+        //Additional properties, methods, parameters, etc.
 
         override fun eat() {
             println("Don't disturb me while Eating!!")
@@ -41,9 +42,9 @@ object OOPInKotlin {
     }
 
     val aDog = Dog("Loki")
-    val aDogName = aDog.name
+    val aDogName = aDog.name    //Cannot be done if name is not a property and only part of the constructor
 
-    // SubType Polymorphism
+    // SubType Polymorphism - Runtime Polymorphism
     val myPet: Pet = Dog("Bruno")
 
     //Abstract Classes
@@ -52,7 +53,7 @@ object OOPInKotlin {
         abstract fun walk(): Unit // May not necessarily have an implementation
     }
 
-    //interface
+    //interface - Ultimate Abstract Class
     interface Carnivore {
         fun eat(animal : Pet): Unit     //all methods are implicitly abstract in interface
     }
@@ -64,8 +65,8 @@ object OOPInKotlin {
     class Snake: Pet(), Carnivore, ColdBlooded{
         override fun eat(animal: Pet): Unit {
             println("I will eat you, I'm a Carnivore")
-            //additional properties, methods, overrides
         }
+        //additional properties, methods, overrides
     }
 
     // Access Modifiers: protected, private
@@ -76,7 +77,7 @@ object OOPInKotlin {
     object MyObject{
         // singleton pattern in one line
         // Singleton = Type + the ONLY instance of that type
-        //Can define properties and methods
+        // Can define properties and methods
 
         val aProperty = 100
         fun aMethod(arg: Int): Int {
@@ -89,9 +90,10 @@ object OOPInKotlin {
     // data classes (Java: records, Scala: case classes)
 
     data class Person(val name: String, val age: Int)
+    //DTO - Requests and Response
     // meant to be passed around and stored in eg Collections
-    //equals, hashCode, toString
-    //copy
+    //equals(), hashCode(), toString()
+    //copy()
     //destructuring -> eg: bob
 
     //Exceptions
@@ -139,7 +141,7 @@ object OOPInKotlin {
         println("Using Singleton")
         println(MyObject.aProperty)
         println(MyObject.aMethod(50))
-        println(Pet.humanLoveGuaranteed)
+        println(Pet.humanLoveGuaranteed)    //belong to companion object
 
         val bob = Person("Bob", 32)
         val (name, age) = bob       // val bobName = bob.name; val bobAge = bob.age
